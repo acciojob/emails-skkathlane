@@ -1,5 +1,9 @@
 package com.driver;
 
+import java.sql.SQLOutput;
+
+//import static com.sun.imageio.plugins.tiff.TIFFFaxCompressor.pass;
+
 public class Email {
 
     private String emailId;
@@ -25,5 +29,48 @@ public class Email {
         // 3. It contains at least one lowercase letter
         // 4. It contains at least one digit
         // 5. It contains at least one special character. Any character apart from alphabets and digits is a special character
+    if(oldPassword.equals(password)){
+        if(isValid(newPassword)){
+            this.password=newPassword;
+            System.out.println("Password has been changed successfully");
+        }
+        else{
+            System.out.println("password is not valid");
+        }
+    }
+    else{
+        System.out.println("password does not match");
+    }
+
+
+    }
+    private boolean isValid(String pass){
+        boolean capitalLetter = false;
+        boolean smallLetter = false;
+        boolean numeric = false;
+        boolean special = false;
+        if (pass.length() == 8) {
+            for (int i = 0; i < pass.length();i++) {
+                char check = pass.charAt(i);
+                if (check >= 'A' && check <= 'Z') {
+                    capitalLetter = true;
+                } else if (check >= 'a' && check <= 'z') {
+                    smallLetter = true;
+                } else if (check >= '0' && check <= '9') {
+                    numeric = true;
+                } else {
+                    special = true;
+                }
+            }
+
+        }
+        else{
+            return false;
+        }
+        if(capitalLetter && smallLetter && numeric && special){
+            return true;
+        }
+        return false;
+
     }
 }
