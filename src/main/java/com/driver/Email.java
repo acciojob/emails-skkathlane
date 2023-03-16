@@ -32,14 +32,14 @@ public class Email {
     if(oldPassword.equals(password)){
         if(isValid(newPassword)){
             this.password=newPassword;
-            System.out.println("Password has been changed successfully");
+//            System.out.println("Password has been changed successfully");
         }
         else{
-            System.out.println("password is not valid");
+//            System.out.println("password is not valid");
         }
     }
     else{
-        System.out.println("password does not match");
+//        System.out.println("password does not match");
     }
 
 
